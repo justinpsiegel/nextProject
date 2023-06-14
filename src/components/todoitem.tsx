@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 type TodoItemProps = {
   id: string;
   title: string;
@@ -9,7 +7,7 @@ type TodoItemProps = {
   toggleTodo: (id: string, complete: boolean) => void;
 };
 
-const TodoItem = ({ id, title, complete, toggleTodo }: TodoItemProps) => {
+export function TodoItem({ id, title, complete, toggleTodo }: TodoItemProps) {
   return (
     <li className="flex gap-1 items-center">
       <input
@@ -21,12 +19,10 @@ const TodoItem = ({ id, title, complete, toggleTodo }: TodoItemProps) => {
       />
       <label
         htmlFor={id}
-        className="peer-checked:line-through peer-checked:text-slate-500"
+        className="cursor-pointer peer-checked:line-through peer-checked:text-slate-500"
       >
         {title}
       </label>
     </li>
   );
-};
-
-export default TodoItem;
+}
